@@ -36,10 +36,12 @@ async fn fetch_weather() -> Result<WeatherResponse, String> {
     let latitude = 28.6139;
     let longitude = -77.2090;
 
+    // test API 1: https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current_weather=true
+    // test API 2: https://geocoding-api.open-meteo.com/v1/search?name=singapore
+
     let url = format!(
-        "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FSingapore",
-        latitude,
-        longitude
+        "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current_weather=true",
+        latitude, longitude
     );
 
     let response = reqwest::get(&url).await.map_err(|e| e.to_string())?;
