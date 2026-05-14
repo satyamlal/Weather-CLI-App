@@ -56,11 +56,3 @@ Klimate uses the **Open-Meteo API**:
 ```bash
 npm run tauri dev
 ```
-
----
-
-# 🤝 Contributing
-
-We follow a strict branching strategy to maintain code quality.
-
-> **Direct commits to the `master` branch are prohibited.**
