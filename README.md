@@ -4,16 +4,6 @@ A high-performance, cross-platform desktop weather application engineered with *
 
 ---
 
-# 🏗 Project Architecture
-
-Klimate follows a **Separation of Concerns (SoC)** model, decoupling the presentation layer from the system-level logic:
-
-- **Client (Presentation Layer)**: A React-based interface styled with Tailwind CSS v4.
-
-- **Server (System Layer)**: A Rust backend that handles OS-level operations and secure API communication.
-
----
-
 # 🛠 Tech Stack & Dependencies
 
 ## System Layer (Backend - Rust)
@@ -61,39 +51,10 @@ Klimate uses the **Open-Meteo API**:
 
 ---
 
-# 🚀 Setup Instructions
-
-Run these exact commands in your terminal to initialize the environment.
-
-## 1. Initialize the Workspace Root
-
-```bash
-git init
-
-# Ensure Cargo.toml in root has:
-# members = ["server"]
-```
-
-## 2. Setup the Client
-
-```bash
-cd client
-npm install
-cd ..
-```
-
-## 3. Setup the Server
-
-```bash
-cd server
-cargo build
-cd ..
-```
-
 ## 4. Run Development Mode
 
 ```bash
-npm run tauri dev --prefix client
+npm run tauri dev
 ```
 
 ---
@@ -103,55 +64,3 @@ npm run tauri dev --prefix client
 We follow a strict branching strategy to maintain code quality.
 
 > **Direct commits to the `master` branch are prohibited.**
-
-## How to Raise an Issue
-
-1. Navigate to the **Issues** tab on GitHub.
-2. Click **New Issue**.
-3. Provide a clear title and a detailed description of the bug or feature request.
-4. Attach logs or screenshots if applicable.
-
-## Contribution Workflow
-
-### 1. Identify an Issue
-
-Find an open issue or raise a new one.
-
-### 2. Create a New Branch
-
-Always create a feature-specific branch from `master`:
-
-```bash
-git checkout -b feature/your-feature-name
-
-# OR
-
-git checkout -b bugfix/your-bug-name
-```
-
-### 3. Development
-
-Ensure your code follows the project's standards.
-
-### 4. Formatting
-
-Before committing, format the Rust code:
-
-```bash
-cd server
-cargo fmt
-```
-
-### 5. Submit a PR
-
-Push your branch to GitHub and open a **Pull Request** against the `master` branch.
-
-Provide a detailed explanation of your changes in the PR description.
-
----
-
-# ⚖ License
-
-This project is licensed under the **MIT License**.
-
-This allows for maximum visibility and reuse, demonstrating a commitment to the open-source community that is essential for professional growth.
