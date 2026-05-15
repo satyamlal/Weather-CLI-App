@@ -55,18 +55,20 @@ async fn fetch_weather() -> Result<ForecastResponse, String> {
 
     let response = reqwest::get(&url)
         .await
-        .map_err(|e| format!("HTTP request failed: {e}"))?;
+        .map_err(|e| format!("HTTP request failed: {}", e))?;
 
     let status = response.status();
+
     if !status.is_success() {
         let body = response.text().await.unwrap_or_default();
-        return Err(format!("OpenWeather error {}: {}", status, body));
+
+        return Err(format!("OpenWeather API error {}: {}", status, body));
     }
 
     let weather_data = response
         .json::<ForecastResponse>()
         .await
-        .map_err(|e| format!("JSON parse failed: {e}"))?;
+        .map_err(|e| format!("JSON parse failed: {}", e))?;
 
     Ok(weather_data)
 }
